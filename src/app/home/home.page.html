@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+    <ion-list-header color="light">Chip picker</ion-list-header>
+    <ion-item>
+        <ion-label position="stacked">Standard List item w/input</ion-label>
+        <ion-input></ion-input>
+    
+      </ion-item>
+              <app-chipselect [options]="options"></app-chipselect>
+              <ion-item>
+                  <ion-label position="stacked">Standard List item w/input</ion-label>
+                  <ion-input></ion-input>
+              
+                </ion-item>
+                <ion-list-header color="light">Date picker</ion-list-header>
+                <ion-item lines="full">
+                    <ion-label>All day</ion-label>
+                    <ion-checkbox slot="start" (ionChange)="allDayToggle($event)"></ion-checkbox>
+                </ion-item>
+                <app-datepicker [label]="'From'"
+                [value]=""
+                [includeTime]="!allday"
+                [form]="form"
+                [control]="'eventStartDate'"
+                [datetimeFrom]="true"
+                ></app-datepicker>
+
+                <app-datepicker [label]="'To'"
+                [value]=""
+                [includeTime]="!allday"
+                [form]="form"
+                [control]="'eventEndDate'"
+                [datetimeTo]="true"
+                ></app-datepicker>
+
+                <ion-button (click)='focus()'>Focus</ion-button>
+
+  
+</ion-content>

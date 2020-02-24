@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Data
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list class="ion-no-padding ion-padding-bottom" lines="full">
+  <ion-item color="light">
+  <ion-label>
+    Chips
+  </ion-label>
+  
+
+  </ion-item>
+  <ion-item *ngFor="let o of options"> 
+    <ion-button shape="round" slot="end" color="danger" fill="clear" (click)="deleteChip(o)"><ion-icon slot="icon-only" name="trash"></ion-icon></ion-button> 
+    {{ o.name }}
+
+  </ion-item>
+  
+    <ion-button fill="clear" expand="block" (click)="presentAlert('new')">Add chip</ion-button>
+
+</ion-list>
+</ion-content>

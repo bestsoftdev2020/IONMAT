@@ -1,0 +1,33 @@
+.backdrop {
+    // color: transparent;
+    background-color: transparent;
+    opacity: 0;
+  }
+  
+  input {
+      border: 0px solid transparent;
+      height: 0px;
+      margin: 0px;
+      padding: 0px;
+  }
+  
+  .date {
+          --padding-top: 8px;
+          --padding-bottom: 8px;
+          --padding-start: 4px;
+      }
+  
+  .matinput {
+      height: 0px;
+      margin: 0px;
+      padding: 0px;
+      width: 0px;
+  }
+  
+  
+  .item-buttons {
+      --margin-top: 0px;
+      --margin-bottom: 0px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+  } 

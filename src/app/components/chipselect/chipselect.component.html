@@ -1,0 +1,49 @@
+
+  <ion-item (click)="searchOptions($event)" [class.item-has-focus]="focus" lines="full">
+    <ion-label *ngIf="!hasOptions" position="stacked">Chips list item input</ion-label>
+    <ion-input #myInput *ngIf="!hasOptions" readonly="true" [class.has-focus]="focus"></ion-input>
+ 
+ 
+    <ion-grid class="ion-no-padding" *ngIf="hasOptions">
+      <ion-row>
+        <ion-col class="ion-no-padding"><ion-label position="stacked">Chips list item</ion-label>
+          <div *ngIf="hasOptions" style="height:48px">
+              <div class="overlay">
+                  <div class="chip" style="padding-top:4px; padding-bottom:4px;">
+                    <ion-chip *ngFor="let o of selectedOptions; index as i;" (click)="optionRemoved(i,o)">
+                        <ion-icon name="compass" color="primary"></ion-icon>
+                        <ion-label>{{o.name}}</ion-label>
+                        <ion-icon name="close"></ion-icon>
+                    </ion-chip>
+                  </div>
+              </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    
+    </ion-grid>
+ 
+  <div *ngIf="!hasOptions" slot="end" style="padding-top:8px">
+    <ion-button fill="clear" *ngIf="!showChild"><ion-icon name="ios-arrow-down"></ion-icon></ion-button>
+    <ion-button fill="clear" *ngIf="showChild"><ion-icon name="ios-arrow-up"></ion-icon></ion-button>
+  </div>
+  <div *ngIf="hasOptions" slot="end">
+      <ion-button fill="clear" *ngIf="!showChild"><ion-icon name="ios-arrow-down"></ion-icon></ion-button>
+      <ion-button fill="clear" *ngIf="showChild"><ion-icon name="ios-arrow-up"></ion-icon></ion-button>
+  </div>
+
+   
+</ion-item>
+
+          <app-chipautocomplete [options]="options"
+                                (selectedOption)="selectPrediction($event)"
+                                (addTrackClicked)="addOptionClicked($event)"
+                                (removeSelection)="removeSelection($event)"
+                                (optionSelected)="optionSelected($event)"></app-chipautocomplete>
+
+<ion-item>
+  <ion-button (click)="toggleFocus()">Toggle Focus</ion-button> 
+</ion-item>                         
+  
+
+  

@@ -1,0 +1,36 @@
+<ion-item class="ion-non-padding" [class.item-has-focus]="true">
+  <ion-label position="stacked" *ngIf="!hasOptions">Chips list item input</ion-label>  
+ 
+    
+    <ion-grid class="ion-no-padding" *ngIf="hasOptions">
+          <ion-row class="ion-no-padding">
+            <ion-col class="ion-no-padding">
+                <ion-chip *ngFor="let o of selectedOptions; index as i;" (click)="optionRemoved(i,o)" class="chip-item">
+                    <ion-icon name="compass" color="primary"></ion-icon>
+                    <ion-label>{{o.name}}</ion-label>
+                    <ion-icon name="close" ></ion-icon>
+                  </ion-chip>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+  <ion-button fill="clear" class="arrow-btn" slot="end"><ion-icon name="ios-arrow-down" (click)="searchOptions($event)"></ion-icon></ion-button>
+</ion-item>
+
+
+<ion-grid class="ion-no-padding ion-padding-start ion-padding-end">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+          <app-chipautocomplete [options]="options"
+                                (selectedOption)="selectPrediction($event)"
+                                (addTrackClicked)="addOptionClicked($event)"
+                                (removeSelection)="removeSelection($event)"
+                                (optionSelected)="optionSelected($event)"></app-chipautocomplete>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button (click)='toggleFocus()'>Focus</ion-button>
+    </ion-row>
+</ion-grid>
+
+  

@@ -1,0 +1,24 @@
+<div matAutocompleteOrigin #optionorigin="matAutocompleteOrigin">
+ 
+  </div>
+  
+  <input type="text" type="hidden" aria-label="Number"  [matAutocompleteConnectedTo]="optionorigin" [matAutocomplete]="optionauto" #optionAutoCompleteInput="matAutocompleteTrigger">
+  <mat-autocomplete #optionauto="matAutocomplete">
+    <ion-grid class="ion-no-padding" *ngIf="options">
+      <ion-row class="ion-no-padding">
+        <ion-col>
+            <ion-chip *ngFor="let o of options; index as i;" (click)="addOption(o)">
+                <ion-icon name="compass" color="primary" ></ion-icon>
+                <ion-label>{{o.name}}</ion-label>
+              </ion-chip>
+        </ion-col>
+      </ion-row>
+     
+    </ion-grid>
+   
+    <mat-option>
+        <ion-button expand="full" fill="clear" (click)="emitAddOption()" class="button">Edit chips</ion-button>
+    
+    </mat-option>
+ 
+  </mat-autocomplete>

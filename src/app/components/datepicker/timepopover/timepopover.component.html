@@ -1,0 +1,12 @@
+<ion-list no-padding>
+    <ion-item lines="full" color="dark">
+        <ion-label>
+          Select time
+        </ion-label>
+      </ion-item>
+  <ion-item button lines="full" *ngFor="let time of times" (click)="setTime(time)">
+    <ion-label>
+      {{time}}
+    </ion-label>
+  </ion-item>
+</ion-list>

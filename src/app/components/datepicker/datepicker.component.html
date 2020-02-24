@@ -1,0 +1,24 @@
+<ion-item>
+    <ion-label position="stacked">{{label}}<ion-text color="danger"> *</ion-text></ion-label>
+    <ion-input [value]='pageoutput'
+               [readonly]="!includeTime"
+               [placeholder]="placeholder"
+               appDatetimemask></ion-input>
+    <ion-buttons slot="end" class="item-buttons">
+    <ion-button fill="clear" shape="round" (click)="picker.open()">
+      <ion-icon slot="icon-only" color="primary" name="calendar"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="includeTime" fill="clear" shape="round" (click)="timesPopover($event)">
+      <ion-icon slot="icon-only" color="primary" name="time"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+    
+  <mat-datepicker #picker (closed)='focus()' (opened)='focus()'></mat-datepicker>
+  <input  class="matinput"
+          [min]='min'
+          [max]='max'
+          [matDatepicker]="picker"
+          (dateChange)="dateEntered($event, 'picker')"
+          size="0"
+          >
+  </ion-item>

@@ -1,0 +1,36 @@
+<ion-item (click)="searchOptions($event)" lines="full">
+    <ion-label *ngIf="!hasOptions" position="stacked">Chips list item input</ion-label>
+    <div *ngIf="!hasOptions" style="padding-top:48px"></div>
+  <ion-grid class="ion-no-padding" *ngIf="hasOptions">
+    <ion-row>
+      <ion-col class="ion-no-padding"><ion-label position="stacked">Chips list item</ion-label></ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+          <ion-chip *ngFor="let o of selectedOptions; index as i;" (click)="optionRemoved(i)">
+              <ion-icon name="compass" color="primary"></ion-icon>
+              <ion-label>{{o.name}}</ion-label>
+              <ion-icon name="close"></ion-icon>
+            </ion-chip>
+      </ion-col>
+    </ion-row>
+    
+  
+   </ion-grid>
+   <div *ngIf="!hasOptions" style="padding-top:48px">
+   <ion-button fill="clear" slot="end"><ion-icon name="ios-arrow-down"></ion-icon></ion-button>
+  </div>
+</ion-item>
+
+<ion-grid class="ion-no-padding ion-padding-start ion-padding-end">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+          <app-chipautocomplete [options]="options"
+                                (selectedOption)="selectPrediction($event)"
+                                (addTrackClicked)="addTrack($event)"
+                                (optionSelected)="optionSelected($event)"></app-chipautocomplete>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  

@@ -1,0 +1,15 @@
+.button {
+    --ion-color-primary-rgb: transparent;
+}
+.btn-option{
+    background-color: #dedede;
+}
+
+.chip-item{
+    border-radius: 5px !important;
+}
+.mat-autocomplete-panel.mat-autocomplete-visible{
+    position: absolute;
+    width: 110%;
+    left: -5%;
+}
